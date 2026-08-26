@@ -24,6 +24,7 @@ export default function Chat() {
 
   const [input, setInput] = useState("");
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<string[]>([]);
   const [finished, setFinished] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
@@ -32,6 +33,8 @@ export default function Chat() {
     const answer = input.trim();
 
     if (!answer || finished) return;
+
+    const updatedAnswers = [...answers, answer];
 
     const newMessages = [
       ...messages,
@@ -48,6 +51,18 @@ export default function Chat() {
 
       setQuestionIndex(nextIndex);
     } else {
+      localStorage.setItem(
+        "leadQualification",
+        JSON.stringify({
+          name: updatedAnswers[0],
+          company: updatedAnswers[1],
+          service: updatedAnswers[2],
+          budget: updatedAnswers[3],
+          timeline: updatedAnswers[4],
+          createdAt: new Date().toISOString(),
+        })
+      );
+
       newMessages.push({
         role: "assistant",
         text: "Thanks! I have enough information to evaluate your lead.",
@@ -55,12 +70,13 @@ export default function Chat() {
 
       newMessages.push({
         role: "assistant",
-        text: "Your responses have been collected successfully. The qualification results will be available on the Results page.",
+        text: "Your qualification result is ready. Visit the Results page to see it.",
       });
 
       setFinished(true);
     }
 
+    setAnswers(updatedAnswers);
     setMessages(newMessages);
     setInput("");
   }
@@ -135,9 +151,7 @@ export default function Chat() {
           </button>
         </form>
       ) : (
-        <p>
-          <strong>Qualification interview complete.</strong>
-        </p>
+        <a href="/results">View Qualification Results ?</a>
       )}
     </main>
   );
