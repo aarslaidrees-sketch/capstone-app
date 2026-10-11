@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Lead Qualification
+
+A responsive web application built as part of the Frontend AI Engineering course. This project provides a foundation for an AI-powered lead qualification experience.
+
+## Live Demo
+
+https://capstone-app-jet.vercel.app/
+
+## Features
+
+- Home page introducing the application
+- Chat page for the lead qualification experience
+- Results page for qualification results
+- Health page displaying service health information
+- Health API endpoint returning JSON status data
+- Responsive layout for mobile and desktop screens
+
+## Tech Stack
+
+- Next.js with the App Router
+- React
+- TypeScript
+- Tailwind CSS
+- Vercel for deployment
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (LTS recommended)
+- npm
+
+### Installation
+
+Clone the repository and open its directory:
+
+```bash
+git clone https://github.com/aarslaidrees-sketch/capstone-app.git
+cd capstone-app
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Application Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Purpose |
+|---|---|
+| `/` | Home page |
+| `/chat` | Lead qualification chat |
+| `/results` | Qualification results |
+| `/health` | Health status page |
+| `/api/health` | JSON health endpoint |
 
-## Learn More
+## Validation
 
-To learn more about Next.js, take a look at the following resources:
+Run the available lint check:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Build the application for production:
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application is deployed on Vercel:
+
+https://capstone-app-jet.vercel.app/
+
+Pushes to the connected GitHub repository can trigger a new deployment.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
